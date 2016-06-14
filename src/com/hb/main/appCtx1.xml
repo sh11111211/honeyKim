@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<context:annotation-config/>
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!-- <bean id="memberDao" class="com.hb.spring.MemberDAO"></bean> -->
+	<bean id="memberDao1" class="com.hb.spring.MemberDAO">
+		<qualifier value="sysout"/>
+	</bean>
+	<bean id="memberDao2" class="com.hb.spring.MemberDAO"></bean>
+	<!-- <bean id="printer" class="com.hb.spring.MemberPrinter"></bean> -->
+	
+	<bean id="regSvc" class="com.hb.spring.MemberRegisterService">
+	</bean>
+	
+	<bean id="pwdSvc" class="com.hb.spring.ChangePasswordService">
+	</bean>
+	
+	<bean id="listPrinter" class="com.hb.spring.MemberListPrinter">
+	</bean>
+	
+	<bean id="infoPrinter" class="com.hb.spring.MemberInfoPrinter">
+	</bean>
+	
+	<bean id="versionPrinter" class="com.hb.spring.VersionPrinter">
+		<!-- <constructor-arg value="4"/>
+		<constructor-arg value="1"/> -->
+		<property name="majorVersion" value="4"/>
+		<property name="minorVersion">
+			<value>1</value>
+		</property>
+	</bean>
+		
+</beans>
